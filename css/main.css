@@ -1,0 +1,24 @@
+#meta-frame {
+	left: 0 !important;
+	top: 0 !important;
+	width: 494px !important;
+}
+
+#playback {
+	left: 0 !important;
+	top: 281px !important;
+	z-index: 100 !important;
+}
+
+#chat {
+	left: 494px !important;
+}
+
+#user-container {
+	left: 0 !important;
+	top: 730px !important;
+}
+
+#footer-container {
+	top: 812px !important;
+}
