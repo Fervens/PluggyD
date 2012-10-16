@@ -4,15 +4,23 @@
 	"manifest_version": 2,
 	"description": "CSS tweaks for plug.fm until I do more.",
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"options_page": "options.html",
 	"icons": { "16": "img/icon.png", "48": "img/icon.png", "128": "img/icon.png" },
-	"content_scripts": [
-		{
-			"matches": [ "http://*.plug.dj/*", "http://plug.dj/*", "http://socketio.plug.dj/*"],
-			"css": [
-				"css/main.css"
-			],
-			"js": [
-			]
-		}
-	]
+	"page_action": {
+		"default_icon": "img/icon.png",
+		"default_title": "PluggyD Options",
+		"default_popup": "options.html"
+	},
+	"background": {
+		"scripts": ["js/background.js"]
+	},
+	"content_scripts": [{
+		"matches": [ "http://*.plug.dj/*", "http://plug.dj/*"],
+		"css": [
+			"css/main.css"
+		],
+		"js": [
+		]
+	}],
+	"permissions": ["tabs"]
 }
