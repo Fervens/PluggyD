@@ -2,11 +2,12 @@
 	left: 0 !important;
 	top: 0 !important;
 	width: 494px !important;
+	height: 299px !important;
 }
 
 #playback {
 	left: 0 !important;
-	top: 281px !important;
+	top: 299px !important;
 	z-index: 100 !important;
 }
 
@@ -16,9 +17,38 @@
 
 #user-container {
 	left: 0 !important;
-	top: 730px !important;
+	top: 750px !important;
 }
 
 #footer-container {
-	top: 812px !important;
+	top: 832px !important;
+}
+
+#media-overlay {
+	left: 0 !important;
+	width: 920px !important;
+}
+
+#media-panel, #media-panel-header, div.media-list {
+	width: 663px !important;
+}
+
+#button-playlist-import {
+	left: 656px !important;
+}
+
+#button-playlist-help {
+	left: 745px !important;
+}
+
+div.actions {
+	left: 473px !important;
+}
+
+#chat-mention-suggestion {
+	margin-left: -320px;
+}
+
+#dj-booth {
+	top: 590px !important;
 }
