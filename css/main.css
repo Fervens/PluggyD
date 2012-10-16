@@ -27,6 +27,8 @@
 #media-overlay {
 	left: 0 !important;
 	width: 920px !important;
+	margin: 0px auto !important;
+	position: relative !important;
 }
 
 #media-panel, #media-panel-header, div.media-list {
@@ -43,6 +45,12 @@
 
 div.actions {
 	left: 473px !important;
+}
+
+#avatar-overlay, #lobby-overlay, #user-list-overlay {
+	left: 0 !important;
+	margin: 0px auto !important;
+	position: relative !important;
 }
 
 #chat-mention-suggestion {
