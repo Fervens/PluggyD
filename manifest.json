@@ -16,11 +16,13 @@
 	},
 	"content_scripts": [{
 		"matches": [ "http://*.plug.dj/*", "http://plug.dj/*"],
-		"css": [
-			"css/main.css"
-		],
 		"js": [
+			"js/jquery.js",
+			"js/main.js"
 		]
 	}],
+	"web_accessible_resources": [
+		"css/main.css"
+	],
 	"permissions": ["tabs"]
 }
