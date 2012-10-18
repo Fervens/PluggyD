@@ -17,6 +17,7 @@ var pluggyd = {};
 	
 	var defaultPreferences = {
 		slimModeEnabled: false //If true, a skinnier version of plug.dj rooms will be used.
+		chatExpanded: false //If true, the chatbox will be expanded when the page loads.
 	};
 	
 	pluggyd.loadPreferences = function() {
@@ -53,8 +54,11 @@ var pluggyd = {};
 	});
 	
 	chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
-		if (message == 'getPreferences') {
+		if (message.event == 'getPreferences') {
 			sendResponse(pluggyd.preferences);
+		} else if (message.event == 'chatExpandedUpdated') {
+			pluggyd.preferences.chatExpanded = message.args;
+			pluggyd.savePreferences(pluggyd.preferences);
 		}
 	});
 })();

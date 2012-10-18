@@ -1,6 +1,6 @@
 (function($) {
 	$(function() {
-		chrome.extension.sendMessage('getPreferences', function(preferences) {
+		chrome.extension.sendMessage({event: 'getPreferences'}, function(preferences) {
 			var $document = $(document);
 			chrome.extension.onMessage.addListener(function(message) {
 				$document.trigger(message.event, message.args);
@@ -9,6 +9,26 @@
 			updateSlimMode(preferences.slimModeEnabled);
 			$document.bind('slimModeChanged', function(e, slimModeEnabled) {
 				updateSlimMode(slimModeEnabled);
+			});
+			
+			
+			if (preferences.chatExpanded) {
+				$('#button-chat-expand').click();
+			} else {
+				$('#button-chat-collapse').click();
+			}
+			
+			$('#button-chat-expand').click(function() {
+				chrome.extension.sendMessage({
+					event: 'chatExpandedUpdated',
+					args: true
+				});
+			});
+			$('#button-chat-collapse').click(function() {
+				chrome.extension.sendMessage({
+					event: 'chatExpandedUpdated',
+					args: false
+				});
 			});
 		});
 	});

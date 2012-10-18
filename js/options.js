@@ -14,8 +14,8 @@
 			pluggyd.preferences.slimModeEnabled = $slimModeEnabled.is(':checked');
 			pluggyd.savePreferences(pluggyd.preferences);
 			pluggyd.sendMessageToTabs({
-				'event': 'slimModeChanged',
-				'args': pluggyd.preferences.slimModeEnabled
+				event: 'slimModeChanged',
+				args: pluggyd.preferences.slimModeEnabled
 			});
 		});
 	}
