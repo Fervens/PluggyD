@@ -16,8 +16,9 @@ var pluggyd = {};
 	}, 10000);
 	
 	var defaultPreferences = {
-		slimModeEnabled: false //If true, a skinnier version of plug.dj rooms will be used.
-		chatExpanded: false //If true, the chatbox will be expanded when the page loads.
+		slimModeEnabled: false, //If true, a skinnier version of plug.dj rooms will be used.
+		chatExpanded: false, //If true, the chatbox will be expanded when the page loads.
+		animateAvatars: true //If true, avatar dance animations will occur normally; otherwise, they will be disabled.
 	};
 	
 	pluggyd.loadPreferences = function() {
@@ -54,9 +55,18 @@ var pluggyd = {};
 	});
 	
 	chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
-		if (message.event == 'getPreferences') {
-			sendResponse(pluggyd.preferences);
-		} else if (message.event == 'chatExpandedUpdated') {
+		if (message.event == 'initialize') {
+			sendResponse({
+				event: 'initialize',
+				args: {
+					preferences: pluggyd.preferences,
+					pluggydSettings: {
+						slimModeCss: chrome.extension.getURL('css/slimMode.css')
+					}
+				}
+			});
+		}
+		else if (message.event == 'chatExpandedUpdated') {
 			pluggyd.preferences.chatExpanded = message.args;
 			pluggyd.savePreferences(pluggyd.preferences);
 		}

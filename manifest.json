@@ -18,11 +18,12 @@
 		"matches": [ "http://*.plug.dj/*", "http://plug.dj/*"],
 		"js": [
 			"js/jquery.js",
-			"js/main.js"
+			"js/content.js"
 		]
 	}],
 	"web_accessible_resources": [
-		"css/main.css"
+		"css/slimMode.css",
+		"js/injected.js"
 	],
 	"permissions": ["tabs"]
 }

@@ -8,14 +8,19 @@
 	function setupPage() {
 		$('#pluginVersion').text(chrome.app.getDetails().version);
 		
-		var $slimModeEnabled = $('#slimModeEnabled');
-		$slimModeEnabled.prop('checked', pluggyd.preferences.slimModeEnabled);
-		$slimModeEnabled.click(function() {
-			pluggyd.preferences.slimModeEnabled = $slimModeEnabled.is(':checked');
+		checkboxSetting('slimModeEnabled');
+		checkboxSetting('animateAvatars');
+	}
+	
+	function checkboxSetting(settingName) {
+		var $element = $('#' + settingName);
+		$element.prop('checked', pluggyd.preferences[settingName]);
+		$element.click(function() {
+			pluggyd.preferences[settingName] = $element.is(':checked');
 			pluggyd.savePreferences(pluggyd.preferences);
 			pluggyd.sendMessageToTabs({
-				event: 'slimModeChanged',
-				args: pluggyd.preferences.slimModeEnabled
+				event: settingName + 'Changed',
+				args: pluggyd.preferences[settingName]
 			});
 		});
 	}
