@@ -21,6 +21,7 @@
 }
 
 #footer-container {
+	left: 0 !important;
 	top: 832px !important;
 }
 
@@ -58,5 +59,10 @@ div.actions {
 }
 
 #dj-booth {
+	left: 0 !important;
 	top: 590px !important;
+}
+
+#audience {
+	left: 0 !important;
 }
