@@ -45,6 +45,10 @@
 		var preferences = args.preferences;
 		pluggydSettings = args.pluggydSettings;
 		
+		if (isPopout()) {
+			return;
+		}
+		
 		updateSlimMode(preferences.slimModeEnabled);
 		$document.bind('slimModeEnabledChanged', function(e, slimModeEnabled) {
 			updateSlimMode(slimModeEnabled);
@@ -102,5 +106,9 @@
 		else {
 			RoomUser.animateAvatars = function() {};
 		}
+	}
+	
+	function isPopout() {
+		return typeof RoomUser === "undefined";
 	}
 })(jQuery);
